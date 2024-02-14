@@ -47,7 +47,7 @@ public class BookService {
 				.authorName(request.getAuthorName())
 				.publisher(request.getPublisher())
 				.language(request.getLanguage())
-				.imageUrl(request.getImageUrl())
+				//.imageUrl(request.getImageUrl())
 				.stock(request.getStock())
 				.category(category)
 				.build();
@@ -62,7 +62,7 @@ public class BookService {
 		inDB.setAuthorName(request.getAuthorName());
 		inDB.setPublisher(request.getPublisher());
 		inDB.setLanguage(request.getLanguage());
-		inDB.setImageUrl(request.getImageUrl());
+		//inDB.setImageUrl(request.getImageUrl());
 		inDB.setStock(request.getStock());
 		if(request.getCategoryId() != null) {                                                /* bu kısımda düzeltme yapılabilir doğrusu bu değildir */
 			Category category = categoryService.findCategoryById(request.getCategoryId());
@@ -91,5 +91,11 @@ public class BookService {
 	public Book findBookById(Long id) {
 		return bookRepository.findById(id)
 				.orElseThrow(() -> new GenericException("Book not found.", HttpStatus.NOT_FOUND));
+	}
+	
+	public void addİmagetoBook(Long id,String imageId) {
+		final var book = findBookById(id);
+		book.setImageId(imageId);
+		bookRepository.save(book);
 	}
 }

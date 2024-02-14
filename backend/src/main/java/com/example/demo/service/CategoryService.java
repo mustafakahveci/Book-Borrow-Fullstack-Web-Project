@@ -1,5 +1,8 @@
 package com.example.demo.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -40,6 +43,12 @@ public class CategoryService {
 	public Category findCategoryById(Long id) {
 		return categoryRepository.findById(id)
 				.orElseThrow(() -> new GenericException("Category not found.", HttpStatus.NOT_FOUND));
+	}
+
+	public List<CategoryDto> getAllCategories() {
+		return categoryRepository.findAll().stream()
+				.map(category -> modelMapper.map(category, CategoryDto.class))
+                .collect(Collectors.toList());
 	}
 	
 }

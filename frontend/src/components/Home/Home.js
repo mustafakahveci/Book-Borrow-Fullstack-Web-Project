@@ -49,7 +49,7 @@ function Home() {
                 {bookList.map(book => (
                     <div>
                         <Book name={book.name} authorName={book.authorName} categoryId={book.categoryId}
-                            bookId={book.id} imageUrl={book.imageUrl} language={book.language}
+                            bookId={book.id} imageId={book.imageId} language={book.language}
                             publisher={book.publisher} stock={book.stock} summary={book.summary} ></Book>
                     </div>
                 ))}

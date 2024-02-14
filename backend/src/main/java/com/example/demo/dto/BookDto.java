@@ -11,7 +11,7 @@ public class BookDto {
 	private String authorName;
 	private String publisher;
 	private String language;
-	private String imageUrl;
+	private String imageId;
 	private Long stock;
 	private Long categoryId;
 }

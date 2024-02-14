@@ -36,7 +36,7 @@ public class Book {
 	private String authorName;
 	private String publisher;
 	private String language;
-	private String imageUrl;
+	//private String imageUrl;
 	private Long stock;
 	
 	@ManyToOne
@@ -47,5 +47,7 @@ public class Book {
 	@OneToOne(mappedBy = "book",fetch = FetchType.LAZY)
 	@JsonIgnore
 	private Borrow borrow;
+	
+	private String imageId;
 		
 }

@@ -1,9 +1,11 @@
 package com.example.demo.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
@@ -23,19 +25,16 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class Reader extends User {
 	
-	@OneToMany(fetch = FetchType.LAZY)
-	@JsonIgnore
-	private List<Book> currentlyBorrow;
+	@ElementCollection
+	private final List<Book> currentlyBorrow = new ArrayList<Book>();
 	//	şuan ödünç aldıkları
 	
-	@OneToMany(fetch = FetchType.LAZY)
-	@JsonIgnore
-	private List<Book> borrowed;
+	@ElementCollection
+	private final List<Book> borrowed = new ArrayList<Book>();
 	// daha önce ödünç alınanlar
 	
-	@OneToMany(fetch = FetchType.LAZY)
-	@JsonIgnore
-	private List<Book> willBorrow;
+	@ElementCollection
+	private final List<Book> willBorrow = new ArrayList<Book>();
 	// ödünç almayı planladıkları
 	
 	@OneToMany(mappedBy = "reader",fetch = FetchType.LAZY)

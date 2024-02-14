@@ -24,7 +24,8 @@ function BookDetails() {
                 <div>
                     <div className='book-details-info'>
                         <div className='book-details-image'>
-                            <img src={book.imageUrl || "img/library.jpg"} alt={book.name} />
+                        <img  src={'/file-storage/download/'+book.imageId}>
+                    </img>
                         </div>
                         <div className='book-details-text'>
                             <h1>{book.name}</h1>

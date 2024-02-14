@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import BookDetails from './components/Book/BookDetails';
 import BookForm from './components/Book/BookForm';
 import EditBookForm from './components/Book/EditBookForm';
+import BooksCategory from './components/Book/BooksCategory';
 import Login from './components/Login/Login'
 import Register from './components/Login/Register'
 
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/register" element={<Register />}></Route>
           <Route exact path="/book/add" element={<BookForm/>}></Route>
           <Route exact path="/book/:bookId/edit" element={<EditBookForm/>}></Route>
+          <Route exact path='/category/:categoryId/books' element={<BooksCategory/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>

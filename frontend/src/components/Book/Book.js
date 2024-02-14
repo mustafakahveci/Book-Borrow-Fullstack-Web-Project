@@ -8,18 +8,15 @@ import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 
 function Book(props) {
-    const { name, authorName, stock, bookId, imageUrl, publisher } = props
+    const { name, authorName, stock, bookId, imageId, publisher } = props
     
     return (
         <div className="bookContainer">
                 <Card sx={{ maxWidth: 345 }}>
                 <Link to={{pathname: '/books/' + bookId+'/details'}}>
-                    <CardMedia
-                        sx={{ height: 140 }}
-                        image={"/static/images/cards/contemplative-reptile.jpg"}
-                        //resim için düzenleme yapılacak
-                        title={name}
-                    /></Link>
+                    <img style={{width:'200px'}} src={'/file-storage/download/'+imageId}>
+                    </img>
+                </Link>
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
                             <h4>{name} </h4 >
