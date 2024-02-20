@@ -10,7 +10,6 @@ public class BookRequest {
 	private String authorName;
 	private String publisher;
 	private String language;
-	
 	private Long stock;
 	private Long categoryId;
 

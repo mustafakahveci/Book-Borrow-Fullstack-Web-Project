@@ -32,6 +32,9 @@ public class BorrowService {
 	private final BookRepository bookRepository;
 	
 	public BorrowDto createBorrow(BorrowCreateRequest request) {
+		if(request.getDay() == 0) {
+			request.setDay(14);
+		}
 		Reader reader = readerService.findReaderById(request.getReaderId());
 		Book book = bookService.findBookById(request.getBookId());
 		Borrow borrow = Borrow.builder()
@@ -47,16 +50,20 @@ public class BorrowService {
 
 	public BorrowDto updateBorrow(Long id, BorrowUpdateRequest request) {
 		Borrow inDB = findBorrowById(id);
-		inDB.setStatus(true);
-		Officer officer = officerService.findOfficerById(request.getOfficerId());
-		inDB.setOfficer(officer);
-		borrowRepository.save(inDB);
-		
-		Book book = inDB.getBook();
-		book.setStock(book.getStock() - 1);
-		bookRepository.save(book);
-		
-		return modelMapper.map(inDB,BorrowDto.class);
+		if (inDB.isStatus() == true) {
+	        throw new IllegalStateException("Talep zaten onaylı.");
+	    }else {
+	    	inDB.setStatus(true);
+			Officer officer = officerService.findOfficerById(request.getOfficerId());
+			inDB.setOfficer(officer);
+			borrowRepository.save(inDB);
+			
+			Book book = inDB.getBook();
+			book.setStock(book.getStock() - 1);
+			bookRepository.save(book);
+			
+			return modelMapper.map(inDB,BorrowDto.class);
+	    }
 	}
 	
 	public Borrow findBorrowById(Long id) {
@@ -66,7 +73,12 @@ public class BorrowService {
 
 	public List<BorrowDto> getAllBooks() {
 		return borrowRepository.findAll().stream()
-				.map(borrow -> modelMapper.map(borrow, BorrowDto.class))
+				.map(borrow ->{
+					BorrowDto borrowDto = modelMapper.map(borrow, BorrowDto.class);
+					borrowDto.setReaderId(borrow.getReader().getName());
+					borrowDto.setBookId(borrow.getBook().getName());
+					return borrowDto;
+				})
 				.collect(Collectors.toList());
 	}
 

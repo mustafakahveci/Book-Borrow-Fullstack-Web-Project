@@ -6,5 +6,4 @@ import lombok.Getter;
 public class BorrowUpdateRequest {
 
 	private Long officerId;
-	private boolean status;
 }

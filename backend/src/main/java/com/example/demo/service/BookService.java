@@ -32,7 +32,9 @@ public class BookService {
 	
 	public BookDto getByBookId(Long id) {
 		Book book = findBookById(id);
-		return modelMapper.map(book, BookDto.class);
+		BookDto bookDto = modelMapper.map(book, BookDto.class);
+	    bookDto.setCategoryId(book.getCategory().getName());
+	    return bookDto;
 	}
 
 	public BookDto createBook(BookRequest request) {
