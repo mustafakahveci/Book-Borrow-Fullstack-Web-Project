@@ -1,0 +1,31 @@
+.talepler-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .talep-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .talep-actions {
+    display: flex;
+    justify-content: flex-end; /* Sağa hizalama */
+  }
+  
+  .talep-buttons button {
+    margin-left: 10px; /* Butonlar arasındaki boşluk */
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #007bff; /* Arka plan rengi */
+    color: #fff; /* Metin rengi */
+    border: none; /* Kenarlık yok */
+    border-radius: 3px; /* Kenar yarıçapı */
+  }
+  
+  .talep-buttons button:hover {
+    background-color: #0056b3; /* Butona fare üzerine gelindiğindeki arka plan rengi */
+  }
+  

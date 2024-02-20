@@ -4,11 +4,12 @@ import Home from './components/Home/Home';
 import User from './components/User/User';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import BookDetails from './components/Book/BookDetails';
-import BookForm from './components/Book/BookForm';
-import EditBookForm from './components/Book/EditBookForm';
+import BookAdd from './components/Book/BookAdd';
+import EditBook from './components/Book/EditBook';
 import BooksCategory from './components/Book/BooksCategory';
 import Login from './components/Login/Login'
 import Register from './components/Login/Register'
+import Talepler from './components/Talep/Talepler';
 
 function App() {
   return (
@@ -21,8 +22,9 @@ function App() {
           <Route exact path="/books/:bookId/details" element={<BookDetails />}></Route>
           <Route exact path="/login" element={<Login />}></Route>
           <Route exact path="/register" element={<Register />}></Route>
-          <Route exact path="/book/add" element={<BookForm/>}></Route>
-          <Route exact path="/book/:bookId/edit" element={<EditBookForm/>}></Route>
+          <Route exact path="/talepler" element={<Talepler />}></Route>
+          <Route exact path="/book/add" element={<BookAdd/>}></Route>
+          <Route exact path="/book/:bookId/edit" element={<EditBook/>}></Route>
           <Route exact path='/category/:categoryId/books' element={<BooksCategory/>}></Route>
         </Routes>
       </BrowserRouter>

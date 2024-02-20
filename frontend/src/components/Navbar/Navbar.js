@@ -69,6 +69,15 @@ const Navbar = () => {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'left' }}>
               <StyledLink to="/">Books</StyledLink>
             </Typography>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'left' }}>
+              <StyledLink to={{ pathname: '/book/add' }}>Kitap Ekle</StyledLink>
+            </Typography>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'left' }}>
+              <StyledLink to={{ pathname: '/talepler' }}>Talepler</StyledLink>
+            </Typography>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'left' }}>
+              <StyledLink to={{ pathname: '/login' }}>Login Page</StyledLink>
+            </Typography>
             <Typography variant="h6" component="div" sx={{ marginRight: '10px' }}>
               <StyledLink to={{ pathname: '/users/' + userId }}>User</StyledLink>
             </Typography>

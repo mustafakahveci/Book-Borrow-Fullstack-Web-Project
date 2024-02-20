@@ -21,11 +21,14 @@
   justify-content: left;
   align-self: flex-start;
   order: -1;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 .book-details-image img {
   width: 100%;
-  height: auto;
+  max-height: 100%;
 }
 
 .book-details-text {

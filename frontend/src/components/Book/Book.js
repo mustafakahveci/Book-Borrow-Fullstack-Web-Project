@@ -14,7 +14,7 @@ function Book(props) {
         <div className="bookContainer">
                 <Card sx={{ maxWidth: 345 }}>
                 <Link to={{pathname: '/books/' + bookId+'/details'}}>
-                    <img style={{width:'200px'}} src={'/file-storage/download/'+imageId}>
+                    <img style={{width:'250px'}} src={'/file-storage/download/'+imageId}>
                     </img>
                 </Link>
                     <CardContent>
@@ -25,7 +25,7 @@ function Book(props) {
                             <p>Author : {authorName}</p>
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                            <p>id : {bookId}</p>
+    
                             <p>Stock : {stock}</p>
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
